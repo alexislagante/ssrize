@@ -7,10 +7,12 @@ import * as minimist from "minimist";
 
 interface SsrizeOptions {
   port: string;
+  path: string;
 }
 
 const defaultOptions = {
-  port: 3000
+  port: 3000,
+  path: "."
 };
 
 class Server {
@@ -23,9 +25,9 @@ class Server {
       ...defaultOptions,
       ...options
     };
+    this.ssrUserAgent = `SSRIZE_${uuid.v4()}`;
     this.app = express();
     this.config();
-    this.ssrUserAgent = `SSRIZE_${uuid.v4()}`;
   }
 
   config() {
@@ -35,7 +37,7 @@ class Server {
       next: express.NextFunction
     ) => {
       if (req.headers["user-agent"] === this.ssrUserAgent) {
-        res.sendFile(path.join(process.cwd(), "build", "index.html"));
+        res.sendFile(path.join(process.cwd(), this.options.path, "index.html"));
         return;
       }
 
@@ -84,7 +86,7 @@ class Server {
     };
 
     this.app.get("/", handler);
-    this.app.use(express.static("build")); // get from parameter
+    this.app.use(express.static(this.options.path)); // get from parameter
     this.app.get("*", handler);
   }
 
@@ -99,7 +101,9 @@ const [, , ...args] = process.argv;
 const ssrizeArgs = minimist(args);
 
 if (args.length > 0) {
-  console.log(ssrizeArgs);
-  const server = new Server(ssrizeArgs);
+  const server = new Server({
+    port: ssrizeArgs.p || ssrizeArgs.port,
+    path: ssrizeArgs._.length > 0 ? ssrizeArgs._[0] : "."
+  });
   server.start();
 }
