@@ -1,6 +1,6 @@
 {
   "name": "ssrize",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A module to serve static files with server-side rendering.",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,9 @@
   ],
   "author": "Alexis Lagante",
   "license": "MIT",
+  "bin": {
+    "ssrize": "./cli.js"
+  },
   "bugs": {
     "url": "https://github.com/alexishacks/ssrize/issues"
   },
