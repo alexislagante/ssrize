@@ -4,7 +4,7 @@
   "description": "A module to serve static files with server-side rendering.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -21,10 +21,27 @@
   "author": "Alexis Lagante",
   "license": "MIT",
   "bin": {
-    "ssrize": "./cli.js"
+    "ssrize": "./dist/index.js"
   },
   "bugs": {
     "url": "https://github.com/alexishacks/ssrize/issues"
   },
-  "homepage": "https://github.com/alexishacks/ssrize#readme"
+  "homepage": "https://github.com/alexishacks/ssrize#readme",
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/minimist": "^1.2.0",
+    "@types/node": "^11.10.4",
+    "@types/pluralize": "0.0.29",
+    "@types/puppeteer": "^1.12.1",
+    "@types/uuid": "^3.4.4",
+    "prettier": "^1.16.4",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "minimist": "^1.2.0",
+    "pluralize": "^7.0.0",
+    "puppeteer": "^1.13.0",
+    "uuid": "^3.3.2"
+  }
 }
