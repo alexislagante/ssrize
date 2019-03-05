@@ -1,6 +1,6 @@
 {
   "name": "ssrize",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A module to serve static files with server-side rendering.",
   "main": "index.js",
   "scripts": {
