@@ -28,7 +28,7 @@ export default class SSRizeServer {
     this.config();
   }
 
-  config() {
+  private config() {
     const handler = async (
       req: express.Request,
       res: express.Response,
