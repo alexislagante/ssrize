@@ -1,0 +1,27 @@
+{
+  "name": "ssrize",
+  "version": "0.0.1",
+  "description": "A module to serve static files with server-side rendering.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexishacks/ssrize.git"
+  },
+  "keywords": [
+    "ssr",
+    "serve",
+    "server",
+    "side",
+    "rendering",
+    "render"
+  ],
+  "author": "Alexis Lagante",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexishacks/ssrize/issues"
+  },
+  "homepage": "https://github.com/alexishacks/ssrize#readme"
+}
