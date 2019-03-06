@@ -7,7 +7,7 @@ const ssrizeArgs = minimist(args);
 
 if (args.length > 0) {
   const server = new SSRizeServer({
-    port: ssrizeArgs.p || ssrizeArgs.port,
+    port: ssrizeArgs.p || ssrizeArgs.port || 3000,
     path: ssrizeArgs._.length > 0 ? ssrizeArgs._[0] : "."
   });
   server.start();

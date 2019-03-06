@@ -28,6 +28,16 @@ export default class SSRizeServer {
     this.config();
   }
 
+  private getPath() {
+    if (
+      this.options.path.startsWith("/") ||
+      this.options.path.startsWith("~/")
+    ) {
+      return this.options.path;
+    }
+    return path.join(process.cwd(), this.options.path);
+  }
+
   private config() {
     const handler = async (
       req: express.Request,
@@ -35,7 +45,7 @@ export default class SSRizeServer {
       next: express.NextFunction
     ) => {
       if (req.headers["user-agent"] === this.ssrUserAgent) {
-        res.sendFile(path.join(process.cwd(), this.options.path, "index.html"));
+        res.sendFile(path.join(this.getPath(), "index.html"));
         return;
       }
 
@@ -84,7 +94,7 @@ export default class SSRizeServer {
     };
 
     this.app.get("/", handler);
-    this.app.use(express.static(this.options.path)); // get from parameter
+    this.app.use(express.static(this.getPath()));
     this.app.get("*", handler);
   }
 
