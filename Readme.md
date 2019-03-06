@@ -1,4 +1,6 @@
-[![install size](https://packagephobia.now.sh/badge?p=ssrize)](https://packagephobia.now.sh/result?p=ssrize)
+[![version](https://img.shields.io/npm/v/ssrize.svg)](https://www.npmjs.com/package/ssrize)
+[![downloads](https://img.shields.io/npm/dt/ssrize.svg)](https://www.npmjs.com/package/ssrize)
+[![code size](https://img.shields.io/github/languages/code-size/alexishacks/ssrize.svg)](https://github.com/alexishacks/ssrize)
 
 # SSRize
 
